@@ -81,6 +81,7 @@ document.getElementById('apply-button').addEventListener('click', function () {
         const convertGrandTotal = parseInt(grandTotal);
         const discountNew = (convertGrandTotal + parseInt(price)) - ((convertGrandTotal + parseInt(price)) *0.15);
         document.getElementById('grand-total').innerText = discountNew;
+        document.getElementById('input-field').value = '';
         this.remove()
 
     }
@@ -90,6 +91,7 @@ document.getElementById('apply-button').addEventListener('click', function () {
         const convertGrandTotal = parseInt(grandTotal);
         const discountNew = (convertGrandTotal + parseInt(price)) - ((convertGrandTotal + parseInt(price)) *0.20);
         document.getElementById('grand-total').innerText = discountNew;
+        document.getElementById('input-field').value = '';
         this.remove()
 
     }
@@ -104,3 +106,24 @@ document.getElementById('apply-button').addEventListener('click', function () {
 function setInnerText(id, value) {
     document.getElementById(id).innerText = value;
 }
+
+
+// hidden
+
+
+function hide(){
+    hideElementById('section');
+    showElementById('hid')
+}
+
+function hideElementById(elementId) {
+    const element = document.getElementById(elementId);
+    element.classList.add('hidden');
+}
+
+function showElementById(elementId2) {
+    const element2 = document.getElementById(elementId2);
+    element2.classList.remove('hidden');
+}
+
+
