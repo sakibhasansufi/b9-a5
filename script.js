@@ -3,12 +3,12 @@ let count = 0;
 let totalClick = 0;
 let clickedOnce = false;
 
-
 for (const seat of allSeat) {
     seat.addEventListener('click', function (e) {
         const seatName = e.target.parentNode.childNodes[1].innerText;
-        const price = 550;
         const className = 'Economy';
+        let price = 550;
+
 
         if (totalClick >= 4) {
             this.disabled = true;
@@ -25,7 +25,13 @@ for (const seat of allSeat) {
             const totalCost = document.getElementById('total-cost').innerText;
             const convertedCost = parseInt(totalCost);
             document.getElementById('total-cost').innerText = convertedCost + parseInt(price);
-            
+
+            // grand total
+            const grandTotal = document.getElementById('grand-total').innerText;
+            const convertGrandTotal = parseInt(grandTotal);
+            const discountNew = (convertGrandTotal + parseInt(price));
+            document.getElementById('grand-total').innerText = discountNew
+
             // seat name
             const selectedSeat = document.getElementById('selected-seat');
             console.log(selectedSeat)
@@ -50,13 +56,50 @@ for (const seat of allSeat) {
             li3.appendChild(p3);
             selectedCLass.appendChild(li3);
 
+            // seat left
+            const availableSeat = document.getElementById('forty').innerText;
+            const convertedAvailableSeat = parseInt(availableSeat);
+            document.getElementById('forty').innerText = convertedAvailableSeat - 1;
+
+
+
         }
+        
 
 
     });
 }
 
+document.getElementById('apply-button').addEventListener('click', function () {
+    console.log('clicked');
+    const couponElement = document.getElementById('input-field').value;
+    const couponCode = couponElement;
+    const price = 0 ;
+    console.log(couponCode);
+    if (couponCode === 'NEW15') {
+        const grandTotal = document.getElementById('grand-total').innerText;
+        const convertGrandTotal = parseInt(grandTotal);
+        const discountNew = (convertGrandTotal + parseInt(price)) - ((convertGrandTotal + parseInt(price)) *0.15);
+        document.getElementById('grand-total').innerText = discountNew;
+        this.remove()
 
+    }
+
+    else if (couponCode === 'Couple 20') {
+        const grandTotal = document.getElementById('grand-total').innerText;
+        const convertGrandTotal = parseInt(grandTotal);
+        const discountNew = (convertGrandTotal + parseInt(price)) - ((convertGrandTotal + parseInt(price)) *0.20);
+        document.getElementById('grand-total').innerText = discountNew;
+        this.remove()
+
+    }
+
+
+    else {
+        alert('wrong coupon')
+    }
+
+})
 
 function setInnerText(id, value) {
     document.getElementById(id).innerText = value;
