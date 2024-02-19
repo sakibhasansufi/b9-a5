@@ -98,7 +98,8 @@ document.getElementById('apply-button').addEventListener('click', function () {
 
 
     else {
-        alert('wrong coupon')
+        alert('wrong coupon');
+        document.getElementById('input-field').value = '';
     }
 
 })
@@ -113,7 +114,7 @@ function setInnerText(id, value) {
 
 function hide(){
     hideElementById('section');
-    showElementById('hid')
+    showElementById('hid');
 }
 
 function hideElementById(elementId) {
@@ -125,5 +126,10 @@ function showElementById(elementId2) {
     const element2 = document.getElementById(elementId2);
     element2.classList.remove('hidden');
 }
+
+
+
+
+
 
 
