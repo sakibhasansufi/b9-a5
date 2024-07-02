@@ -12,7 +12,7 @@ This is a bus ticketing website. Here customer can buy ticket and by applying co
 - Daisy UI tailwind CSS based component library
 - JavaScript
 
- If you clone this repository and want to run this website , you will need your own firebase configuration and mongoDB database username and password. Because firebase configuration and mongoDb user and password is ignored in this github repository.
+ If you clone this repository and want to run this website , you just need to copy the code and run it with live server extension in the vs code.
 
 ## Live Link
 https://sakibhasansufi.github.io/b9-a5/?
